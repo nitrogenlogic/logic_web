@@ -1,0 +1,13 @@
+<dl>
+	<dt>Design Name</dt>
+	<dd><%= @design['name'] %></dd>
+	<dt>Design Revision</dt>
+	<dd><%= @design['revision'].join('.') %></dd>
+	<dt>Number of Objects</dt>
+	<dd><%= @design['numobjs'] %></dd>
+	<dt>Update Interval</dt>
+	<dd>
+		<%= %Q{#{@design['avg']}/#{@design['period']}&mu;s} %>
+		<%= "(%.2f/%.2fHz)" % [1000000.0 / @design['avg'], 1000000.0 / @design['period']] %>
+	</dd>
+</dl>

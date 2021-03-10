@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/*
+ * Webfonts for use by HTML and SVG in the Automation Controller web interface.
+ * (C)2012 Mike Bourgeous
+ */
+
+@font-face {
+	font-family: 'Orbitron';
+	font-weight: 200;
+	src: url('../fonts/orbitron-light-webfont.eot'); /* IE */
+	src: local('Orbitron Light'), url('../fonts/orbitron-light-webfont.ttf') format('opentype'); /* The good guys */
+}
+@font-face {
+	font-family: 'Orbitron';
+	font-weight: normal;
+	src: url('../fonts/orbitron-medium-webfont.eot'); /* IE */
+	src: local('Orbitron'), url('../fonts/orbitron-medium-webfont.ttf') format('opentype'); /* The good guys */
+}
+@font-face {
+	font-family: 'Orbitron';
+	font-weight: bold;
+	src: url('../fonts/orbitron-bold-webfont.eot'); /* IE */
+	src: local('Orbitron Bold'), url('../fonts/orbitron-bold-webfont.ttf') format('opentype'); /* The good guys */
+}
+@font-face {
+	font-family: 'Orbitron';
+	font-weight: 900;
+	src: url('../fonts/orbitron-black-webfont.eot'); /* IE */
+	src: local('Orbitron Black'), url('../fonts/orbitron-black-webfont.ttf') format('opentype'); /* The good guys */
+}
+
+@font-face {
+	/* The Bitstream Vera copyright notice is contained in the .ttf file's license field */
+	/* Including as DejaVu Sans as that's what the SVG uses */
+	font-family: 'DejaVu Sans';
+	font-weight: normal;
+	src: local('DejaVu Sans'), local('Bitstream Vera Sans'), url('../fonts/Vera.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'DejaVu Sans';
+	font-weight: bold;
+	src: local('DejaVu Sans Bold'), local('Bitstream Vera Sans Bold'), url('../fonts/VeraBd.ttf') format('truetype');
+}

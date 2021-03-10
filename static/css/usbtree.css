@@ -1,0 +1,54 @@
+@charset "UTF-8";
+/*
+ * Styles for the attached hardware display.
+ * (C)2012 Mike Bourgeous
+ */
+
+#usbtree {
+	position: relative;
+	margin: -4px -10px -6px;
+	padding: 0;
+	border: none;
+}
+
+#usbtree > section {
+	text-align: center;
+	padding: 10px;
+	border: none;
+	margin: 0;
+}
+#usbtree > section:nth-child(2n+1) {
+	background: rgba(128, 128, 128, 0.1);
+}
+
+#usbtree > section > iframe {
+	position: relative;
+	vertical-align: top;
+	overflow-x: visible;
+	overflow-y: visible;
+	z-index: 2;
+}
+
+#wires {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	pointer-events: none;
+}
+
+#wires .wire_border {
+	fill: none;
+	stroke: #000;
+	stroke-width: 5.0px;
+}
+#wires .wire_outer {
+	fill: none;
+	stroke: #555;
+	stroke-width: 3.5px;
+}
+#wires .wire_inner {
+	fill: none;
+	stroke: #888;
+	stroke-width: 1.5px;
+}

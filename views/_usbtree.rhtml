@@ -1,0 +1,20 @@
+<%# Graphical view of attached hardware. Wrap in a box. %>
+<script type="text/javascript" src="/js/ls_usbtree.js"></script>
+<div id="usbtree">
+	<!-- TODO: Could add a switch that toggles between USB and Ethernet.
+	The Ethernet view could display devices or services detected on the
+	network. -->
+	<svg id="wires">
+		<g>
+			<path class='wire_border' d="M 111,200 L 111,202 C 111,220 252,205 252,224 L 252,225" />
+			<path class='wire_outer' d="M 111,200 L 111,202 C 111,220 252,205 252,224 L 252,225" />
+			<path class='wire_inner' d="M 111,200 L 111,202 C 111,220 252,205 252,224 L 252,225" />
+		</g>
+		<g>
+			<!-- This path looks bad in Chrome, but fine in Firefox. Report a bug. -->
+			<path d="M 10,310 L 10,312 C 10,322.5 750,322.5 750,334 L 750,335" class="wire_border" />
+			<path d="M 10,310 L 10,312 C 10,322.5 750,322.5 750,334 L 750,335" class="wire_outer" />
+			<path d="M 10,310 L 10,312 C 10,322.5 750,322.5 750,334 L 750,335" class="wire_inner" />
+		</g>
+	</svg>
+</div>

@@ -1,0 +1,30 @@
+<%# TODO: Get status from target device instead of local system when running
+on a host other than the target logic device (low priority) %>
+<dl>
+	<dt>Load Average</dt><%# TODO: Have a timer update CPU% every n seconds %>
+	<dd><%= File.new('/proc/loadavg').read.split(' ', 4)[0, 3].join(' ') %></dd>
+	<dt>Uptime</dt>
+	<%
+		sec = File.read('/proc/uptime').split(' ', 2)[0]
+		sec, frac = sec.split('.', 2)
+		sec = sec.to_i
+		min = sec / 60
+		hr = min / 60
+		day = hr / 24
+		hr = hr % 24
+		min = min % 60
+		sec = sec % 60
+	%>
+	<dd><%= %Q{#{"#{day}days " if day > 0}#{hr}:#{"%02d" % min}:#{"%02d" % sec}} %></dd>
+	<dt>Logic Version</dt>
+	<%
+		build = begin
+				NL::LC::KVP.kvp(File.read('/etc/logicsystem_build'))['FW_BUILDNO']
+			rescue
+				'UNKNOWN'
+			end
+	%>
+	<dd><%= "#{NL::LC.get_client($lsrv).version || 'UNKNOWN'}-#{build}" %></dd><%# TODO: Get the version some other way %>
+	<dt>Attached Devices</dt>
+	<dd><a href="/hw/template" title="Click here to download a Palace Designer template for some of the devices attached to this controller.">Download Palace template</a></dd>
+</dl>

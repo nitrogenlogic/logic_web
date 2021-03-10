@@ -1,0 +1,9 @@
+<<%= @boxtag %> class="box<%= " #{@boxclasses}" if @boxclasses %>">
+<% if @boxheader %>
+	<header>
+	<h1><%= @boxheader %></h1>
+	<h2><%= @boxright %></h2>
+	</header>
+<% end %>
+<%= @boxcontent %>
+</<%= @boxtag %>>

@@ -1,0 +1,5 @@
+APP_NAME="Automation Logic Status Page"
+APP_AUTHOR="Nitrogen Logic"
+APP_DESC="Web interface for viewing the status of the automation logic."
+APP_PATH=/
+APP_PORT=4567

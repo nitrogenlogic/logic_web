@@ -1,0 +1,9 @@
+<section class="box darkbox invbox fullbox">
+<header><h1><%= @title %></h1></header>
+<p>Click the Shut Down button below to prepare the device for transport.</p>
+<p>The device may be unplugged when its blue LED stops flashing.  If the device
+is not unplugged within a short time, it will automatically reboot.</p>
+<div style="text-align: center;"><form method="POST" action="/shutdown" charset="utf-8">
+		<input type="submit" name="submit" value="Shut Down"></input>
+</form></div>
+</section>

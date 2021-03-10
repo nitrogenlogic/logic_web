@@ -1,0 +1,14 @@
+<%# List of network devices %>
+<p>This is a list of all Nitrogen Logic controllers found on the local network.</p>
+<table>
+	<tr>
+		<th>Host Name</th>
+		<th>IP Address</th>
+	</tr>
+	<% LogicStatusPage.network_devices.each_value do |v| %>
+		<tr>
+			<td><a href="http://<%= "#{h v[:name]}:#{v[:port]}" %>/"><%= h v[:name] %></a></td>
+			<td><a href="http://<%= "#{h v[:ip]}:#{v[:port]}" %>/"><%= h v[:ip] %></a></td>
+		</tr>
+	<% end %>
+</table>

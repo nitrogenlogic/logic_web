@@ -1,0 +1,11 @@
+[Unit]
+Description=Nitrogen Logic Automation Controller Web UI
+After=network.target
+Before=getty.target
+
+[Service]
+ExecStart=/bin/openvt -f -w -c 2 -- /opt/nitrogenlogic/webstatus/webstatus_monitor.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

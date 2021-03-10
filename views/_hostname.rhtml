@@ -1,0 +1,6 @@
+<%# Change device hostname %>
+<form method="POST" action="/hostname" charset="utf-8">
+	<div class="inlinebox box darkbox invbox"><input type="text" name="hostname" value="<%= Socket.gethostname %>"></input></div>
+	<div class="inlinebox">.local</div>
+	<div class="inlinebox"><input type="submit" name="submit" value="Set Hostname"></input></div>
+</form>

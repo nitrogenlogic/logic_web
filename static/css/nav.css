@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/*
+ * Styles for header navigation bar
+ * (C)2011 Mike Bourgeous
+ */
+
+
+header > nav {
+	clear: both;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+header > nav > a, header > nav > a:link, header > nav > a:active, header > nav > a:visited {
+	display: inline-block;
+	text-decoration: none;
+	color: #aaa;
+	padding: 2px 5px;
+}
+header > nav > a.current, header > nav > a:hover {
+	color: #ddd;
+}
+nav a:nth-child(n+2) {
+	border-left: solid 1px #424242;
+}

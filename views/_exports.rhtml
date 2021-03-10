@@ -1,0 +1,36 @@
+<%# Table of exports.  Suggest wrapping in a box. %>
+<% @exports_id = @exports_id ? @exports_id + 1 : 1 %>
+<% if @exports and @exports.respond_to? :each %>
+	<form action="/api/set" method="POST" id="form_lsexports<%= @exports_id %>">
+		<table class="exports" id="table_lsexports<%= @exports_id %>">
+			<!-- TODO: Allow user-selectable columns -->
+			<!-- TODO: Use webshim to support type="range", or use jQuery UI slider -->
+			<tr><th></th><th>Address</th><th>Object Name</th><th>Parameter</th><th>Type</th><th>Value <em>(click to edit)</em></th></tr>
+			<% @exports.each_with_index do |x, i| %>
+				<tr <%= %Q{data-export="#{i}" data-objid="#{x.objid}" data-index="#{x.index}" data-type="#{x.type}" data-hide="#{x.hide_in_ui}"} %>>
+					<%= "<td>#{i}</td><td>#{x.objid},#{x.index}</td><td>#{x.obj_name}</td><td>#{x.param_name}</td>" %>
+					<%= "<td>#{x.type}</td>" %>
+					<td>
+						<!-- data-value is for resetting to original value -->
+						<input type="text" <%=
+						str = %Q{name="param_#{x.objid}_#{x.index}" data-value="#{h x.value}" value="#{h x.value}"}
+						str << ' disabled="disabled"' if x.read_only
+						str << %Q{ min="#{x.min}" max="#{x.max}"} if x.type == 'int'
+						str
+						%>></input>
+					</td>
+				</tr>
+			<% end %>
+			<tr id="submitrow_lsexports<%= @exports_id %>">
+				<td colspan="6" class="paramsubmit">
+					<label for="submit_lsexports<%= @exports_id %>">Click to send modified values</label>
+					<input type="submit" id="submit_lsexports<%= @exports_id %>" name="submit" value="Set Values" class="box" style="padding: 2px; border-radius: 4px;"></input>
+				</td>
+			</tr>
+		</table>
+		<div class="exports_error" id="err_lsexports<%= @exports_id %>"></div>
+	</form>
+
+	<script src="/js/ls_exports.js"></script>
+	<script>$(function(){ LS.EXP.initExports('lsexports' + <%= @exports_id %>) });</script>
+<% end %>

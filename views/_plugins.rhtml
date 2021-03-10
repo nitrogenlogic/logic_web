@@ -1,0 +1,9 @@
+<%# Shows installed logic system plugins [TODO: cache] %>
+<%# TODO: Do something more efficient and a lot less ugly %>
+<% `logicplugins --html`.split("\n\n\n").each do |pl| %>
+	<% pl = pl.split("\n").keep_if{|v| not v =~ /(br class|_title")/}.map{|v| v.gsub(%r{<span class="plugin_name">(.*)</span>}, '<header><hgroup><h1>\1</h1>') } %>
+	<% pl = pl.map{|v| v.gsub(%r{<span class="plugin_author">(.*)</span>}, '<h2>\1</h2>').gsub(%r{<.*_description">}, '</hgroup></header>') } %>
+	<% pl = pl.map{|v| v.gsub(%r{</span>}, '').gsub(%r{(</?)div( ?)}, '\1section\2').gsub('plugin_info"', 'box darkbox twobox" style="display: inline-block; vertical-align: top; float: none; width: 48.75%"') } %>
+	<% pl = pl.map{|v| v.gsub(%r{.*Nitrogen Logic.*}, '') } %>
+	<%= pl.join("\n") %>
+<% end %>

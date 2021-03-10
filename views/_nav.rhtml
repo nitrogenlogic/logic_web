@@ -1,0 +1,7 @@
+<nav>
+<%# TODO: Store navigation entries in a configuration file? %>
+<%# TODO: Get current URL in order to show active page. %>
+<% [ { :url => '/', :title => 'Home'}, { :url => '/settings', :title => 'Settings' } ].each do |l|
+%><a href="<%= l[:url] %>" title="<%= l[:title] %>"><%= l[:title] %></a><%
+end %>
+</nav>
